@@ -6,6 +6,18 @@ title: Home
     <h1>{{ title }} </h1>
 </header>
 
+<p>This photos collection is about cars.</p>
+
+<!-- <img src="_data/photos.13avfhr.json.media.src.original" alt="/_data/photos.13avfhr.json.media.alt" /> -->
+
+{% assign count = 0 %}
+{% for photo in photos.dvgfira.media %}
+{% assign count = count | plus: 1 %}
+<a href="cars/page-{{ count }}/index.html">
+    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}"/>
+</a>
+{% endfor %}
+
 <footer>
     <hr>
     <p>
@@ -14,3 +26,9 @@ title: Home
         </small>
     </p>
 </footer>
+
+<!-- {% for photo in livingrooms.media %}
+<a href="/photos/{{ photo.id }}">
+    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}" />
+</a>
+{% endfor %} -->
