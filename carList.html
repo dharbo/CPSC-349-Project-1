@@ -1,27 +1,68 @@
 ---
-layout: base
-title: Car Page
+layout: car
+title: Car
 pagination:
-    data: photos.dvgfira.media
-    size: 1
+  data: photos.dvgfira.media
+  size: 1
 permalink: "cars/page-{{ pagination.pageNumber | plus: 1 }}/index.html"
 ---
 
-<header>
-    <a href="../../index.html">Home</a>
-
-    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}
-    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}
-
-    <a href="{{ pagination.href.first }}">First</a>
-    <a href="{{ pagination.href.last }}">Last</a>
-
-    <br>
-    <h1>{{ title }}</h1>
-</header>
-
-    
 {% for car in pagination.items -%}
-    <img src="{{ car.src.landscape }}" alt="{{ car.alt }}">
-    <a href="{{ car.photographer_url }}">Photographer: {{ car.photographer }}</a>
+
+<figure>
+  <img src="{{ car.src.large }}" alt="{{ car.alt }}" />
+</figure>
+
+<article style="background-color: {{ car.avg_color }};">
+  <p>
+    Image Description: 
+    <em>
+      <a href="{{ car.src.large }}">
+        {{ car.alt }}
+      </a>
+    </em>
+  </p>
+
+  <br />
+
+  <p>
+    Photographer:
+    <a href="{{ car.photographer_url }}">
+      {{ car.photographer }}
+    </a>
+  </p>
+
+  <br />
+
+  <p>Move between Car Pages:</p>
+
+  <ul>
+  
+    <li>
+      <a href="{{ pagination.href.first }}">
+        First
+      </a>
+    </li>
+  
+    <li>{% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">
+        Previous
+      </a>{% else %}Previous{% endif %}
+    </li>
+  
+    <li>{% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">
+        Next
+      </a>{% else %}Next{% endif %}
+    </li>
+  
+    <li>
+      <a href="{{ pagination.href.last }}">
+        Last
+      </a>
+    </li>
+  
+  </ul>
+
+</article>
 {% endfor -%}

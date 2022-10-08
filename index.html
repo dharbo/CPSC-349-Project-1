@@ -2,33 +2,20 @@
 layout: base
 title: Home
 ---
-<header>
-    <h1>{{ title }} </h1>
-</header>
 
-<p>This photos collection is about cars.</p>
+  <p>
+    Description of chosen photos collection: This collection of photos is about cars,
+    which has made transportation both easy and fast! They are almost necessary in
+    today's age and it is important to appreciate such inventions, so we have 
+    created a site to do just that!
+  </p>
+  
+  <br>
 
-<!-- <img src="_data/photos.13avfhr.json.media.src.original" alt="/_data/photos.13avfhr.json.media.alt" /> -->
-
-{% assign count = 0 %}
-{% for photo in photos.dvgfira.media %}
-{% assign count = count | plus: 1 %}
-<a href="cars/page-{{ count }}/index.html">
-    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}"/>
-</a>
-{% endfor %}
-
-<footer>
-    <hr>
-    <p>
-        <small>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
-        </small>
-    </p>
-</footer>
-
-<!-- {% for photo in livingrooms.media %}
-<a href="/photos/{{ photo.id }}">
-    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}" />
-</a>
-{% endfor %} -->
+  {% assign count = 0 %} {% for photo in photos.dvgfira.media %} {% assign count
+    = count | plus: 1 %}
+    <a href="cars/page-{{ count }}/index.html">
+      <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}" />
+    </a>
+    {% endfor %}
+    
